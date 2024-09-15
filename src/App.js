@@ -1,31 +1,22 @@
-import React from 'react'
+import logo from './logo.svg';
+import './App.css';
+import AddProducts from './components/AddProduct';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SearchProducts from './components/SearchProduct';
+import ViewProducts from './components/ViewProduct';
 
-const Navbar = () => {
+function App() {
   return (
     <div>
-        <nav class="navbar navbar-expand-lg bg-success">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Shopping Cart App</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Add</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/search">Search</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/view">Viewall</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+      <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<AddProducts/>}/>
+      <Route path="/search" element={<SearchProducts/>}/>
+      <Route path="/view" element={<ViewProducts/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default App;
